@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "run test",
-    "start": "nodemon --ignore data/ server.js"
+    "start": "nodemon --ignore  server.js"
   },
   "keywords": [
     "graphql",

@@ -1,6 +1,0 @@
-import { makeExecutableSchema } from 'graphql-tools';
-
-type Query  {
-   test: String,
-   greeting: String
-}

@@ -7,7 +7,7 @@ const port = process.env.PORT || 9000;
 const app = express();
 
 const fs = require('fs')
-const typeDefs = fs.readFileSync('./schema.graphql',{encoding:'utf-8'})
+const typeDefs = fs.readFileSync('./schemas/schema.graphql',{encoding:'utf-8'})
 const resolvers = require('./resolvers')
 
 const {makeExecutableSchema} = require('graphql-tools')
