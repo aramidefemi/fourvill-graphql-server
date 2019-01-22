@@ -1,0 +1,10 @@
+extend type Query  { 
+   colleges: [College],
+   collegeById(id:ID!):College
+}
+type College {
+   id:ID!
+   name:String
+   location:String
+   rating:Float
+}

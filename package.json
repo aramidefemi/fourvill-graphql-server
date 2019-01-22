@@ -25,6 +25,8 @@
     "notarealdb": "^0.2.2"
   },
   "devDependencies": {
+    "lodash": "^4.17.11",
+    "mongoose": "^4.13.18",
     "nodemon": "1.17.1"
   }
 }
