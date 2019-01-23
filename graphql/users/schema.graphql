@@ -1,0 +1,21 @@
+type Query  { 
+   users: [User],
+   userById(id:ID!):User
+}
+
+type User {
+  ID:String
+  email: String,
+  userName: String,
+  fullName: String,
+  password: String,
+  profilePicture: String,
+  timezone: String,
+  authrnticationType: String,
+  availability: Boolean, 
+  workspaceUrls: [String],
+  businessType: String,
+  role: [String],
+  createdAt: String,
+  updatedAt: String,
+}

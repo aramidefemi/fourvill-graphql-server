@@ -3,7 +3,7 @@ fourvill-graphql-server
 
 
 
-# Specs2
+# Specs
 
 User account
 
