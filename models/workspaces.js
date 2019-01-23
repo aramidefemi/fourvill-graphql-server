@@ -1,7 +1,7 @@
 let mongoose = require('mongoose')
 const user = require('users')
 
-let rolesSchema = new mongoose.Schema({
+let workspacesSchema = new mongoose.Schema({
   url: String,
   owner: user, 
   name: String, 
@@ -15,6 +15,6 @@ let membersSchema = new mongoose.Schema({
 })
 
 module.exports = [
- mongoose.model('roles', rolesSchema),
+ mongoose.model('workspaces', workspacesSchema),
  mongoose.model('members', membersSchema)
 ]

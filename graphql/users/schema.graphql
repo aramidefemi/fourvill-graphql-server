@@ -3,8 +3,12 @@ type Query  {
    userById(id:ID!):User
 }
 
+type Mutation {
+   createUser(email: String!): User
+}
+
 type User {
-  ID:String
+  _id:String
   email: String,
   userName: String,
   fullName: String,

@@ -1,15 +1,22 @@
 extend type Query  {
    greeting: String,
-   students: [Student],
-   studentById(id:ID!):Student
+   workspaces: [Workspace],
+   workspaceByUrl(url:String!): Workspace
 }
 
-type Student {
-   id:ID!
-   firstName:String
-   lastName:String
-   password:String
-   collegeId:String 
-   fullName:String 
-   college:College
+extend type Mutation {
+  setMessage(message: String): String
+}
+
+type Workspace {
+  url: String,
+  owner: User, 
+  name: String, 
+  theme: String,
+  members: [Member]
 } 
+
+type Member {
+  type: String,
+  details: User
+}
