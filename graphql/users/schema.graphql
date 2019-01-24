@@ -1,10 +1,11 @@
 type Query  { 
    users: [User],
+   login(params: UserLogin!): User 
    userById(id:ID!):User
 }
 
 type Mutation {
-   createUser(email: String!): User
+   createUser(params: UserRegistraion!): Response
 }
 
 type User {
@@ -22,4 +23,27 @@ type User {
   role: [String],
   createdAt: String,
   updatedAt: String,
+}
+
+type Response {
+   status: Boolean!,
+   message: String!
+}
+
+input UserLogin {
+   email: String!,
+   password: String
+}
+input UserRegistraion {
+  email: String,
+  userName: String,
+  fullName: String,
+  password: String,
+#   profilePicture: String,
+  timezone: String,
+  authenticationType: String,
+  availability: Boolean, 
+  workspaceUrls: [String],
+  businessType: String,
+  role: [String]
 }
