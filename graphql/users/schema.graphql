@@ -1,13 +1,21 @@
 type Query  { 
    users: [User],
-   login(params: UserLogin!): User 
+   login(params: UserLogin!): Login 
    userById(id:ID!):User
+   unlockToken (token: String): User
 }
 
 type Mutation {
    createUser(params: UserRegistraion!): Response
 }
 
+ 
+
+type Login  {
+   user: User,
+   token: String,
+   status: Boolean!,
+}
 type User {
   _id:String
   email: String,
@@ -27,7 +35,7 @@ type User {
 
 type Response {
    status: Boolean!,
-   message: String!
+   message: String,
 }
 
 input UserLogin {
@@ -35,10 +43,10 @@ input UserLogin {
    password: String
 }
 input UserRegistraion {
-  email: String,
-  userName: String,
+  email: String!,
+  userName: String!,
   fullName: String,
-  password: String,
+  password: String!,
 #   profilePicture: String,
   timezone: String,
   authenticationType: String,
