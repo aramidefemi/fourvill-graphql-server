@@ -10,6 +10,7 @@ let usersSchema = new mongoose.Schema({
   authrnticationType: String,
   availability: Boolean, 
   businessType: String,
+  emailVerification: Boolean,
   workspaceUrls: {
     type: Map,
     of: String

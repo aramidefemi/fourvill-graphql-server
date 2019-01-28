@@ -38,6 +38,13 @@ Login
 
 - User can enter workspace URL and email and password to login
 
+-comments 
+ - to login
+    - query for workspace with workspace url
+    0r
+    - query for workspace login with url and email
+
+
 Forgot password
 
 - user enters workspace url

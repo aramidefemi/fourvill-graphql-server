@@ -1,20 +1,15 @@
 let mongoose = require('mongoose')
-const user = require('users')
+const user = require('./users')
 
 let workspacesSchema = new mongoose.Schema({
   url: String,
   owner: user, 
   name: String, 
   theme: String,
-  members: [membersSchema]
+  members: [{ type: Schema.Types.ObjectId, ref: 'users' }]
 })
 
-let membersSchema = new mongoose.Schema({
-  type: String,
-  details: user
-})
 
 module.exports = [
- mongoose.model('workspaces', workspacesSchema),
- mongoose.model('members', membersSchema)
+ mongoose.model('workspaces', workspacesSchema)
 ]

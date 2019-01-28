@@ -14,7 +14,7 @@ const db = mongoose
   });
 
   
-const port = process.env.PORT || 9002;
+const port = process.env.PORT || 9004;
 const app = express();
 
 const schema = require("./graphql-config");

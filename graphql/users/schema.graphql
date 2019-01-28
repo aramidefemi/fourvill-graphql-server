@@ -2,11 +2,13 @@ type Query  {
    users: [User],
    login(params: UserLogin!): Login 
    userById(id:ID!):User
-   unlockToken (token: String): User
+   userByEmail(email:String!):User,
+   unlockToken (token: String): User,
 }
 
 type Mutation {
-   createUser(params: UserRegistraion!): Response
+   createUser(params: UserRegistraion!): Response,
+   verifyEmail(email:String!): Response
 }
 
  
@@ -15,6 +17,7 @@ type Login  {
    user: User,
    token: String,
    status: Boolean!,
+   message: String
 }
 type User {
   _id:String
@@ -26,16 +29,23 @@ type User {
   timezone: String,
   authrnticationType: String,
   availability: Boolean, 
-  workspaceUrls: [String],
+  workspaceUrls: [WorkspaceUrl],
   businessType: String,
   role: [String],
   createdAt: String,
   updatedAt: String,
 }
 
+ 
+type WorkspaceUrl {
+   title: String,
+   url:  String
+}
+
 type Response {
    status: Boolean!,
    message: String,
+   payload: String
 }
 
 input UserLogin {
@@ -43,15 +53,7 @@ input UserLogin {
    password: String
 }
 input UserRegistraion {
-  email: String!,
-  userName: String!,
-  fullName: String,
-  password: String!,
-#   profilePicture: String,
-  timezone: String,
-  authenticationType: String,
-  availability: Boolean, 
-  workspaceUrls: [String],
-  businessType: String,
-  role: [String]
+   workspaceUrl: String!,
+   email: String!,
+   password: String!
 }

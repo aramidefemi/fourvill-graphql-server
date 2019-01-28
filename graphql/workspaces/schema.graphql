@@ -1,22 +1,24 @@
 extend type Query  {
    greeting: String,
    workspaces: [Workspace],
-   workspaceByUrl(url:String!): Workspace
+   workspaceByUrl(url:String!): Workspace,
+   workspaceLogin(params:WorkspaceLogin!): Login,
 }
 
 extend type Mutation {
-  setMessage(message: String): String
+  createWorkspace(params:Workspace!): Response
 }
-
+type WorkspaceLogin {
+  workspaceUrl: String!,
+  email: String!,
+  password: String!
+}
 type Workspace {
-  url: String,
-  owner: User, 
-  name: String, 
+  url: String!,
+  owner: User!, 
+  title: String!, 
   theme: String,
   members: [Member]
 } 
 
-type Member {
-  type: String,
-  details: User
-}
+ 
