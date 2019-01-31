@@ -85,3 +85,14 @@ Integrations
 Search
 
 - user can search through all comments, contents and conversations
+
+
+- We'll have spaces and projects in spaces, then inside projects we'll have folders. Contents will live in folders
+- A space/project can be private
+- Users can join and leave spaces but not project
+- If a user is in a space, they can see all the projects, unless it's private
+- Spaces and Projects can be archived
+- For search, I should be able to search for conversations, comments, contents, space, projects, folders, members
+
+
+ **workspace > spaces > project > folders**

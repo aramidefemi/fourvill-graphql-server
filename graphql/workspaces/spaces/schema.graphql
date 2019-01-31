@@ -1,0 +1,24 @@
+extend type Query  { 
+   spaces: String,
+   spaceById: Spaces,
+}
+
+extend type Mutation {
+  createSpace(params: newSpace!): Response
+}
+
+type Spaces {
+  title: String,
+  description: String,
+  workspace: Workspace,
+  projects: [Projects],
+  private: Boolean
+}
+
+input  newSpace {
+   workspaceId: ID!,
+   title: String!,
+   creator: ID,
+   description: String,
+   private: Boolean
+}

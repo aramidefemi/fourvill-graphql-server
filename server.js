@@ -14,7 +14,7 @@ const db = mongoose
   });
 
   
-const port = process.env.PORT || 9004;
+const port = process.env.PORT || 9005;
 const app = express();
 
 const schema = require("./graphql-config");
@@ -25,4 +25,4 @@ const { graphiqlExpress, graphqlExpress } = require("apollo-server-express");
 app.use("/graphql", graphqlExpress({ schema }));
 app.use("/graphiql", graphiqlExpress({ endpointURL: "/graphql" }));
 
-app.listen(port, () => console.info(`Server started on port ${port}`));
+app.listen(port, () => console.info(`Server started on port ${port} -- visit /graphiql `));

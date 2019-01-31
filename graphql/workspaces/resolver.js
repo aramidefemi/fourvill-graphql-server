@@ -3,6 +3,22 @@ var jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const key = "ALLMYTHOUGHTSARELOCKEDUP";
 
+const Mutation = {
+  createWorkspace:(root,args,context,info) => {
+       const value = args.params;
+
+       return  workspaces.create(value)
+        .then(res=> {
+
+          return {
+            status : true,
+            message: 'completed',
+            payload: res._id
+          }
+        })
+    }
+ }
+
 const Query = {
   workspaces: () => workspaces.find(),
   workspaceByUrl: (root, args, context, info) =>
@@ -11,6 +27,7 @@ const Query = {
         url: args.url
       })
       .populate("users"),
+  integrationsList: () =>integrations.find(),
   workspaceLogin: async (root, args, context, info) => {
     const { workspaceUrl, email, password } = args.params;
 
@@ -61,12 +78,7 @@ const Query = {
   
 };
 
-//db.students.find()[0]['_id'].valueOf()
-//  const Mutation = {
-//     createStudent:(root,args,context,info) => {
-//        return db.students.create({collegeId:args.collegeId,
-//        firstName:args.firstName,
-//        lastName:args.lastName})
-//     }
-//  }
-module.exports = { Query };
+
+ 
+
+module.exports = { Query, Mutation };

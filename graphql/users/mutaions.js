@@ -38,7 +38,7 @@ const Mutation = {
         workspaceUrls: args.params.workspaceUrls,
         businessType: args.params.businessType,
         role: args.params.role
-      }).then((res) =>res);
+      });
 
       emailer({
         receiver: args.params.email,

@@ -3,22 +3,38 @@ extend type Query  {
    workspaces: [Workspace],
    workspaceByUrl(url:String!): Workspace,
    workspaceLogin(params:WorkspaceLogin!): Login,
+   integrationsList: Integrations,
 }
 
 extend type Mutation {
-  createWorkspace(params:Workspace!): Response
+  createWorkspace(params: newWorkspace!): Response
 }
-type WorkspaceLogin {
+
+
+
+input WorkspaceLogin {
   workspaceUrl: String!,
   email: String!,
   password: String!
 }
+input newWorkspace {
+  workspaceUrl: String!,
+  title: String!,
+  domain: String,
+  creator: ID
+}
 type Workspace {
   url: String!,
-  owner: User!, 
+  creator: User!, 
   title: String!, 
   theme: String,
-  members: [User]
+  members: [User],
+  integrations: [Integrations],
+  # space: [Spaces]
 } 
 
+type Integrations {
+  name: String,
+  active: Boolean
+}
  
