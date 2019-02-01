@@ -1,13 +1,15 @@
 extend type Query  { 
    spaces: String,
-   spaceById: Spaces,
+   spaceById(id:ID): Spaces,
+   workspaceSpaces(id:ID): Spaces
 }
 
 extend type Mutation {
-  createSpace(params: newSpace!): Response
+  createSpace(params: NewSpace!): Response
 }
 
 type Spaces {
+  _id: ID
   title: String,
   description: String,
   workspace: Workspace,
@@ -15,10 +17,10 @@ type Spaces {
   private: Boolean
 }
 
-input  newSpace {
-   workspaceId: ID!,
+input  NewSpace {
+   workspace: ID!,
    title: String!,
-   creator: ID,
+   creator: ID!,
    description: String,
    private: Boolean
 }

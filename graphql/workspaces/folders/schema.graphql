@@ -1,59 +1,45 @@
-type Query  { 
-   users: [User],
-   login(params: UserLogin!): Login 
-   userById(id:ID!):User
-   userByEmail(email:String!):User,
-   unlockToken (token: String): User,
+extend type Query  { 
+   folders: String,
+   folderById: Folders,
+   folderContents: Contents
 }
 
-type Mutation {
-   createUser(params: UserRegistraion!): Response,
-   verifyEmail(email:String!): Response
+extend type Mutation {
+  createFolder(params: Newfolder!): Response
+  createContents(params: NewContents!): Response
 }
 
+type Folders {
+     _id: ID
+  title: String,
+  description: String,
+  workspace: Workspace,
+  folders: [folders],
+  private: Boolean
+}
+
+type Contents {
+     _id: ID
+  title: String,
+  description: String,
+  private: Boolean,
+  type: String,
+  creator: ID,
+  payload: [String]
+}
+input NewContents {
+  title: String!,
+  creator: ID!,
+  description: String,
+  private: Boolean,
+  payload: [String]
+}
  
 
-type Login  {
-   user: User,
-   token: String,
-   status: Boolean!,
-   message: String
-}
-type User {
-  _id:String
-  email: String,
-  userName: String,
-  fullName: String,
-  password: String,
-  profilePicture: String,
-  timezone: String,
-  authrnticationType: String,
-  availability: Boolean, 
-  workspaceUrls: [WorkspaceUrl],
-  businessType: String,
-  role: [String],
-  createdAt: String,
-  updatedAt: String,
-}
-
- 
-type WorkspaceUrl {
-   title: String,
-   url:  String
-}
-
-type Response {
-   status: Boolean!,
-   message: String,
-   payload: String
-}
-
-input UserLogin {
-   email: String!,
-   password: String
-}
-input UserRegistraion {
-   workspaceUrl: String!,
-   email: String!,
-   password: String!
+input  Newfolder {
+   workfolderId: ID!,
+   title: String!,
+   creator: ID,
+   description: String,
+   private: Boolean
 }

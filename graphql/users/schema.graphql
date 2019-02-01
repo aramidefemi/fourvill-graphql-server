@@ -20,7 +20,7 @@ type Login  {
    message: String
 }
 type User {
-  _id:String
+  _id:ID
   email: String,
   userName: String,
   fullName: String,

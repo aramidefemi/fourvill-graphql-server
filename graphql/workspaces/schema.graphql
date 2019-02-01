@@ -24,6 +24,7 @@ input newWorkspace {
   creator: ID
 }
 type Workspace {
+    _id: ID
   url: String!,
   creator: User!, 
   title: String!, 
