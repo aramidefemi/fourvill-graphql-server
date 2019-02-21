@@ -1,5 +1,4 @@
-let mongoose = require('mongoose')
-const user = require('./users')
+let mongoose = require('mongoose') 
 const integrations = require('./integrations')
 var Schema = mongoose.Schema;
 
@@ -10,11 +9,11 @@ let integrationsSchema = new mongoose.Schema({
 
 let workspacesSchema = new mongoose.Schema({
   url: String,
-  creator: { type: Schema.Types.ObjectId, ref: 'users' }, 
+  creator: { type: Schema.Types.ObjectId, ref: 'members' }, 
   title: String, 
   theme: String,
   domain: String,
-  members: [{ type: Schema.Types.ObjectId, ref: 'users' }],
+  members: [{ type: Schema.Types.ObjectId, ref: 'members' }],
   integrations: [integrationsSchema],
   space: [{type: Schema.Types.ObjectId, ref: 'spaces' }]
 })

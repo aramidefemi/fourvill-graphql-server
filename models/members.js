@@ -1,6 +1,6 @@
 let mongoose = require('mongoose')
 
-let usersSchema = new mongoose.Schema({
+let membersSchema = new mongoose.Schema({
   email: String,
   userName: String,
   fullName: String,
@@ -11,10 +11,7 @@ let usersSchema = new mongoose.Schema({
   availability: Boolean, 
   businessType: String,
   emailVerification: Boolean,
-  workspaceUrls: {
-    type: Map,
-    of: String
-  },
+  workspaceUrl: String,
   role: {
     type: Map,
     of: String
@@ -23,4 +20,4 @@ let usersSchema = new mongoose.Schema({
   updatedAt: { type: Date, default: Date.now },
 })
 
-module.exports = mongoose.model('users', usersSchema)
+module.exports = mongoose.model('members', membersSchema)

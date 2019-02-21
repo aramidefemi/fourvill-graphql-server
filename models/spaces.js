@@ -1,6 +1,4 @@
-let mongoose = require('mongoose')
-const user = require('./users')
-const projects = require('./projects')
+let mongoose = require('mongoose')  
 var Schema = mongoose.Schema;
 
 let spacesSchema = new mongoose.Schema({
@@ -9,7 +7,7 @@ let spacesSchema = new mongoose.Schema({
   workspace: { type: Schema.Types.ObjectId, ref: 'workspaces' },
   projects: [{type: Schema.Types.ObjectId, ref: 'projects' }],
   private: Boolean,
-  creator: { type: Schema.Types.ObjectId, ref: 'users' },
+  creator: { type: Schema.Types.ObjectId, ref: 'members' },
 })
 
  

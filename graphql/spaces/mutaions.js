@@ -1,4 +1,4 @@
-const spaces = require("../../../models/spaces");
+const spaces = require("../../models/spaces");
  
  
 const Mutation = {

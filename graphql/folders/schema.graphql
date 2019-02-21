@@ -14,7 +14,7 @@ type Folders {
   title: String,
   description: String,
   workspace: Workspace,
-  folders: [folders],
+  folders: [Folders],
   private: Boolean
 }
 

@@ -1,0 +1,75 @@
+type Query  { 
+   members: [Member],
+   simpleLogin(params: MemberLogin!): Login 
+   userById(id:ID!):Member
+   userByEmail(email:String!):Member,
+   unlockToken (token: String): Member,
+}
+
+type Mutation {
+   createMember(params: MemberRegistraion!): Response,
+   verifyEmail(email:String!): Response,
+   editProfile(params: MemberProfile!): Response,
+   changePsasword(params: MemberChangePassword!): Response
+}
+
+ 
+
+type Login  {
+   user: Member,
+   token: String,
+   status: Boolean!,
+   message: String
+}
+
+type Member {
+  _id:ID
+  email: String,
+  userName: String,
+  fullName: String,
+  password: String,
+  profilePicture: String,
+  timezone: String,
+  authrnticationType: String,
+  availability: Boolean, 
+  workspaceUrl: String,
+  businessType: String,
+  role: [String],
+  createdAt: String,
+  updatedAt: String,
+}  
+
+input MemberProfile { 
+  email: String,
+  userName: String,
+  fullName: String, 
+  profilePicture: String,
+  timezone: String,
+  authrnticationType: String,
+  availability: Boolean, 
+  workspaceUrl: String,
+  businessType: String,
+  role: [String], 
+}
+input MemberChangePassword { 
+  token: String,
+  oldPassword: String,
+  newPassword: String
+}
+
+
+type Response {
+   status: Boolean!,
+   message: String,
+   payload: String
+}
+
+input MemberLogin {
+   email: String!,
+   password: String
+}
+input MemberRegistraion {
+   workspaceUrl: String!,
+   email: String!,
+   password: String!
+}

@@ -1,23 +1,24 @@
-const users = require("../../models/users");
+const members = require("../../models/members");
 var jwt = require("jsonwebtoken"); 
 const bcrypt = require("bcrypt"); 
 const key = "ALLMYTHOUGHTSARELOCKEDUP";
 
 
 const Query = {
-  users: () => users.find(), 
+  members: () => members.find(), 
 
   userById: (root, args, context, info) =>
-    users.findOne({
+    members.findOne({
       _id: args.id
     }),
+    
   userByEmail: (root, args, context, info) =>
-    users.findOne({
+    members.findOne({
       email: args.email
     }),
 
-  login: async (root, args, context, info) => {
-    var user = await users
+  simpleLogin: async (root, args, context, info) => {
+    var user = await members
       .findOne({
         email: args.params.email
       })

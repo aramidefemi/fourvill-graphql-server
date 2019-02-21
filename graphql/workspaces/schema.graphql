@@ -26,10 +26,10 @@ input newWorkspace {
 type Workspace {
     _id: ID
   url: String!,
-  creator: User!, 
+  creator: Member!, 
   title: String!, 
   theme: String,
-  members: [User],
+  members: [Member],
   integrations: [Integrations],
   # space: [Spaces]
 } 

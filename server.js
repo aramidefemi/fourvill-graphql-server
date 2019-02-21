@@ -4,8 +4,8 @@ const express = require("express");
 
 var mongoose = require("mongoose");
 const db = mongoose
-  // .connect("mongodb://localhost/test")
-  .connect("mongodb://aramide:aramide98@ds111065.mlab.com:11065/fourvill")
+  .connect("mongodb://localhost/test")
+  // .connect("mongodb://aramide:aramide98@ds111065.mlab.com:11065/fourvill")
   .then(() => {
     console.log("Database connection successful");
   })
@@ -14,7 +14,7 @@ const db = mongoose
   });
 
   
-const port = process.env.PORT || 9005;
+const port = process.env.PORT || 9000;
 const app = express();
 
 const schema = require("./graphql-config");

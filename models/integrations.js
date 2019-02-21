@@ -1,5 +1,5 @@
 let mongoose = require('mongoose')
-const user = require('./users') 
+const user = require('./members') 
 var Schema = mongoose.Schema;
 
 
